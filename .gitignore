@@ -1,0 +1,12 @@
+backend/.venv/
+__pycache__/
+*.pyc
+.env
+data/projects/
+data/generated/
+data/chroma/
+data/exports/
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+data/
