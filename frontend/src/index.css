@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background: #0a0a0a;
+  color: #cccccc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Moon-white flash on active agent */
+.moon-glow {
+  animation: moonFlash 2s ease-in-out infinite;
+}
+
+@keyframes moonFlash {
+  0%, 100% {
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.04);
+    background: radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+  }
+  50% {
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1);
+    background: radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+  }
+}
+
+.moon-dot {
+  animation: moonPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes moonPulse {
+  0%, 100% {
+    box-shadow: 0 0 14px 6px rgba(255, 255, 255, 0.45);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 22px 10px rgba(255, 255, 255, 0.75);
+    transform: scale(1.15);
+  }
+}
+
+/* Beam traveling between agents */
+.beam-travel {
+  animation: beamDrop 0.85s ease-in-out forwards;
+}
+
+@keyframes beamDrop {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 5px);
+    opacity: 0.3;
+  }
+}
+
+.agent-active {
+  animation: cardReveal 0.4s ease-out;
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0.4;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar — Cursor-like */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
