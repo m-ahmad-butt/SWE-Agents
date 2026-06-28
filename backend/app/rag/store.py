@@ -18,14 +18,14 @@ def get_vectorstore(project_id: str) -> Chroma:
         persist_directory=persist,
     )
 
-# index documents into vector store
+# add documents into vector store
 def index_documents(project_id: str, documents: list[Document]) -> None:
     if not documents:
         return
     store = get_vectorstore(project_id)
     store.add_documents(documents)
 
-# index text into vector store
+# add text into vector store
 def index_text(project_id: str, text: str, metadata: dict | None = None) -> None:
     docs = split_text(text, metadata)
     index_documents(project_id, docs)
